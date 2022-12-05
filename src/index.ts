@@ -1,3 +1,3 @@
-import * as NumberPrinter from "./exerciseOne";
+import * as NumberPrinter from "./number-printer";
 
 export default { NumberPrinter };
