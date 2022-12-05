@@ -1,0 +1,39 @@
+{
+  "name": "practice-pkg",
+  "version": "1.0.0",
+  "description": "Package creation practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "build": "tsc",
+    "prepare": "husky install"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dalponte/practice-pkg.git"
+  },
+  "keywords": [
+    "practice",
+    "dalponte"
+  ],
+  "author": "maicodalponte@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dalponte/practice-pkg/issues"
+  },
+  "homepage": "https://github.com/Dalponte/practice-pkg#readme",
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
+  "devDependencies": {
+    "husky": "^8.0.2",
+    "lint-staged": "^13.1.0",
+    "prettier": "2.8.0",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.9.3"
+  }
+}
