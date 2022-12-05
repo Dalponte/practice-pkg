@@ -1,5 +1,5 @@
 {
-  "name": "practice-pkg",
+  "name": "@dalponte.m/practice-pkg",
   "version": "1.0.0",
   "description": "Package creation practice",
   "main": "lib/index.js",
@@ -8,6 +8,7 @@
     "test": "jest --config jestconfig.json",
     "build": "tsc",
     "prepare": "husky install && npm run build",
+    "lint": "tslint -p tsconfig.json",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
