@@ -1,24 +1,29 @@
-type CountryLanguageFilter = (languages: string[]) => boolean;
+type CountryLanguage = {
+  country: string
+  languages: string[]
+}
+
+type CountryLanguageFilter = (languages: string[]) => boolean
 
 const countCountries = () => {
-  return 0;
-};
+  return 0
+}
 
 const mostLanguagesCountry = (filter?: CountryLanguageFilter) => {
-  return [];
-};
+  return []
+}
 
 const countLanguages = (countries: string[]) => {
-  return {};
-};
+  return {}
+}
 
 const mostCommonLanguage = () => {
-  return [];
-};
+  return []
+}
 
 export default {
   countCountries,
   mostLanguagesCountry,
   countLanguages,
   mostCommonLanguage,
-};
+}
