@@ -1,31 +1,35 @@
-import langHelper from "../language-helper"
+import * as langHelper from "../language-helper"
 import { expect } from "@jest/globals"
 
 describe("Language helper module", () => {
-  it("should returns the number of countries in the world", () => {
-    const countriesNumber = langHelper.countCountries()
+  it("should returns the number of countries in the world", async () => {
+    const countriesNumber = await langHelper.countCountries()
     expect(countriesNumber).toEqual(5)
   })
 
-  it("should finds the country with the most official languages, where they officially speak German (de)", () => {
-    const filter = (languages: string[]) => languages.includes("de")
-    const mostLanguagesWithGermanCountry =
-      langHelper.mostLanguagesCountry(filter)
-    expect(mostLanguagesWithGermanCountry).toEqual(["BE"])
+  it("should finds the country with the most official languages, where they officially speak German (de)", async () => {
+    const countries = await langHelper.mostLanguagesCountries({
+      byLanguages: ["de"],
+    })
+    expect(countries).toEqual(["BE"])
   })
 
-  it("should counts all the official languages spoken in the listed countries", () => {
-    const countriesLanguagesCount = langHelper.countLanguages(["US", "BE"])
-    expect(countriesLanguagesCount).toEqual({ US: 1, BE: 3 })
+  it("should counts all the official languages spoken in the listed countries", async () => {
+    const countriesLanguagesCount = await langHelper.countLanguages({
+      byCountries: ["US", "BE"],
+    })
+    expect(countriesLanguagesCount).toEqual(4)
   })
 
-  it("should to find the country with the highest number of official languages", () => {
-    const mostLanguagesCountry = langHelper.mostLanguagesCountry()
+  it("should to find the country with the highest number of official languages", async () => {
+    const mostLanguagesCountry = await langHelper.mostLanguagesCountries()
     expect(mostLanguagesCountry).toEqual(["BE"])
   })
 
-  it("should to find the most common official language(s), of all countries", () => {
-    const mostLanguagesCountry = langHelper.mostCommonLanguage()
-    expect(mostLanguagesCountry).toEqual(["de", "nl"])
+  it("should to find the most common official language(s), of all countries", async () => {
+    const mostLanguagesCountry = await langHelper.mostCommonLanguage()
+    expect(mostLanguagesCountry.length).toEqual(2)
+    expect(mostLanguagesCountry.includes("nl")).toBeTruthy()
+    expect(mostLanguagesCountry.includes("de")).toBeTruthy()
   })
 })
