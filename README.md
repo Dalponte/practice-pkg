@@ -1,7 +1,40 @@
 ## Package creation practice
+
 Practicing to publish a basic package with sample functionality.
 
-The following exercises are provided by the company *Visual Nuts*:
+### Usage
+
+You can install using:
+
+`npm i @dalponte.m/practice-pkg`
+
+The package export two modules:
+
+```javascript
+const { LanguageHelper, NumberPrinter } = require("@dalponte.m/practice-pkg")
+
+NumberPrinter.integerPrinter()
+// Print exercice 1, described bellow
+
+const ex2 = [
+  await LanguageHelper.countCountries(),
+  await LanguageHelper.mostLanguagesCountries({
+    byLanguages: ["de"],
+  }),
+  await LanguageHelper.countLanguages({
+    byCountries: ["US", "BE"],
+  }),
+  await LanguageHelper.mostLanguagesCountries(),
+  await LanguageHelper.mostCommonLanguage(),
+]
+console.log(ex2)
+// Print exercice 2, each index as a item. Described bellow
+```
+
+### About the project
+
+The following exercises are provided by the company _Visual Nuts_:
+
 > **Exercise 1**:
 > Write or describe an algorithm that prints the whole integer numbers to the console, start
 > from the number 1, and print all numbers going up to the number 100.
@@ -16,33 +49,36 @@ The following exercises are provided by the company *Visual Nuts*:
 > **Exercise 2**:
 > Image you have a set of data in JSON, describing official languages spoken by countries,
 > as such:
+>
 > ```json
 > [
 >   {
->     country:"US",
->     languages: ["en"]
+>     "country": "US",
+>     "languages": ["en"]
 >   },
 >   {
->     country:"BE",
->     languages: ["nl","fr","de"]
+>     "country": "BE",
+>     "languages": ["nl", "fr", "de"]
 >   },
 >   {
->     country:"NL",
->     languages: ["nl"]
+>     "country": "NL",
+>     "languages": ["nl"]
 >   },
 >   {
->     country:"DE",
->     languages: ["de"]
+>     "country": "DE",
+>     "languages": ["de"]
 >   },
 >   {
->     country:"ES",
->     languages: ["es"]
+>     "country": "ES",
+>     "languages": ["es"]
 >   }
 > ]
 > ```
+>
 > Write a function in javascript that:
-> - returns the number of countries in the world;
-> - finds the country with the most official languages, where they officially speak German (de); 
-> - counts all the official languages spoken in the listed countries;
-> - to find the country with the highest number of official languages;
-> - to find the most common official language(s), of all countries.
+>
+> 1. returns the number of countries in the world;
+> 2. finds the country with the most official languages, where they officially speak German (de);
+> 3. counts all the official languages spoken in the listed countries;
+> 4. to find the country with the highest number of official languages;
+> 5. to find the most common official language(s), of all countries.
