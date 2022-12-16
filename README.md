@@ -11,23 +11,27 @@ You can install using:
 The package export two modules:
 
 ```javascript
-const { LanguageHelper, NumberPrinter } = require("@dalponte.m/practice-pkg")
+var practicePkg = require("@dalponte.m/practice-pkg")
+
+const { NumberPrinter, LanguageHelper } = practicePkg
+console.log(NumberPrinter, LanguageHelper)
 
 NumberPrinter.integerPrinter()
 // Print exercice 1, described bellow
 
-const ex2 = [
-  await LanguageHelper.countCountries(),
-  await LanguageHelper.mostLanguagesCountries({
+Promise.all([
+  LanguageHelper.countCountries(),
+  LanguageHelper.mostLanguagesCountries({
     byLanguages: ["de"],
   }),
-  await LanguageHelper.countLanguages({
+  LanguageHelper.countLanguages({
     byCountries: ["US", "BE"],
   }),
-  await LanguageHelper.mostLanguagesCountries(),
-  await LanguageHelper.mostCommonLanguage(),
-]
-console.log(ex2)
+  LanguageHelper.mostLanguagesCountries(),
+  LanguageHelper.mostCommonLanguage(),
+]).then((ex2) =>
+  ex2.forEach((result, i) => console.log(`Item ${i + 1}:`, result))
+)
 // Print exercice 2, each index as a item. Described bellow
 ```
 
