@@ -1,6 +1,14 @@
-import { CountryLanguages, Filter } from "../language-helper"
-
 import { default as countriesLanguages } from "./countries-languages.json"
+
+export type Filter = {
+  byCountries?: string[]
+  byLanguages?: string[]
+}
+
+export type CountryLanguages = {
+  country: string
+  languages: string[]
+}
 
 export const filterCountries = (
   source: CountryLanguages[],

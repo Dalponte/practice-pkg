@@ -7,15 +7,11 @@ const getValueString = (value: number): string => {
   else return String(value)
 }
 
-function integerPrinter(endingNumber: number = 100) {
+export function integerPrinter(endingNumber: number = 100) {
   const start = 1
   if (endingNumber < 1)
     throw Error(`invalid endingNumber parameter cannot be bellow ${start}`)
   for (let index = start; index <= endingNumber; index++) {
     console.log(getValueString(index))
   }
-}
-
-export default {
-  integerPrinter,
 }
