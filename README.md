@@ -17,7 +17,6 @@ const { NumberPrinter, LanguageHelper } = practicePkg
 console.log(NumberPrinter, LanguageHelper)
 
 NumberPrinter.integerPrinter()
-// Print exercice 1, described bellow
 
 Promise.all([
   LanguageHelper.countCountries(),
@@ -32,5 +31,4 @@ Promise.all([
 ]).then((ex2) =>
   ex2.forEach((result, i) => console.log(`Item ${i + 1}:`, result))
 )
-// Print exercice 2, each index as a item. Described bellow
 ```
